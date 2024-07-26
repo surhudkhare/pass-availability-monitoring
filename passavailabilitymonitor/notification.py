@@ -18,6 +18,7 @@ def send_email_notifications(to_email, subject, message):
         server.sendmail(from_email, to_email, msg.as_string())
 
 def send_desktop_notification(title, message):
+    # TODO: Add sound
     script = f'display notification "{message}" with title "{title}"'
     subprocess.run(['osascript', '-e', script])
 
