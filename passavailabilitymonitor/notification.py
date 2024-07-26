@@ -27,8 +27,10 @@ def notify(mode="desktop"):
     message = f'{get_time()}\nThe passes are now available! Check the website'
     if mode == 'email':
         send_email_notifications(os.getenv('TO_EMAIL'), subject, message)
-    else:
+    elif mode == "desktop":
         send_desktop_notification(subject, message)
+    else:
+        raise ValueError("Invalid notification mode")
 
 
 if __name__ == "__main__":
